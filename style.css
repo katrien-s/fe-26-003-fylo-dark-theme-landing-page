@@ -1,0 +1,378 @@
+/* ----------------  */
+/* Custom Properties */
+/* ----------------  */
+
+:root {
+	--clr-neutral-900: 0 0% 0%;
+	--clr-neutral-400: 0 0% 75%;
+	--clr-neutral-0: 0 100% 100%;
+
+	--clr-navy-950: 216 53% 9%;
+	--clr-navy-900: 218 28% 13%;
+	--clr-navy-850: 217 28% 15%;
+	--clr-navy-800: 219 30% 18%;
+	--clr-navy-50: 222 36% 91%;
+
+	--clr-blue-300: 177 67% 63%;
+	--clr-blue-250: 186 61% 72%;
+
+	--clr-red-500: 0 100% 63%;
+
+	--gradient: linear-gradient(
+		90deg,
+		hsl(175 68% 64%) 0%,
+		hsl(198 60% 50%) 100%
+	);
+
+	--fs-600: 2.5rem;
+	--fs-500: 1.25rem;
+	--fs-400: 1rem;
+	--fs-300: 0.875rem;
+	--fs-200: 0.75rem;
+	--fs-100: 0.625rem;
+	--fs-50: 0.4375rem;
+
+	--ff-sans-accent: 'Raleway', sans-serif;
+	--ff-sans-normal: 'Open Sans', sans-serif;
+
+	--fw-700: 700;
+	--fw-400: 400;
+
+	--spacing-1000: 5rem;
+	--spacing-800: 4rem;
+	--spacing-600: 3rem;
+	--spacing-500: 2.5rem;
+	--spacing-400: 2rem;
+	--spacing-300: 1.5rem;
+	--spacing-200: 1rem;
+	--spacing-100: 0.5rem;
+	--spacing-0: 0rem;
+}
+
+/* ----------------  */
+/* Reset             */
+/* ----------------  */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	block-size: 100%;
+}
+
+body {
+	min-block-size: 100%;
+}
+
+img,
+iframe,
+audio,
+video,
+canvas {
+	display: block;
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+svg {
+	max-inline-size: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+textarea {
+	resize: vertical;
+}
+
+fieldset,
+iframe {
+	border: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+	font-variant-numeric: proportional-nums;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-variant-numeric: lining-nums;
+}
+
+input,
+label,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.1;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-weight: 400;
+}
+
+body {
+	font-family: var(--ff-sans-normal);
+	font-size: var(--fs-400);
+	background-color: hsl(var(--clr-dark));
+	color: hsl(var(--clr-white));
+	line-height: 1.5;
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: min-content 1fr;
+	overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* -----------------  */
+/* Utility Classes    */
+/* -----------------  */
+
+/* General */
+
+.flex {
+	display: flex;
+	gap: var(--gap, 1rem);
+}
+
+.grid {
+	display: grid;
+	gap: var(--gap, 1rem);
+}
+
+.d-block {
+	display: block;
+}
+
+.flow > *:where(:not(:first-child)) {
+	margin-top: var(--flow-space, 1rem);
+}
+
+.flow--space-small {
+	--flow-space: 0.75rem;
+}
+
+.wrapper {
+	padding-inline: 2em;
+	margin-inline: auto;
+	max-width: 80rem;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+[hidden] {
+	display: none;
+}
+
+.skip-to-content {
+	position: absolute;
+	z-index: 9999;
+	background-color: hsl(var(--clr-white));
+	color: hsl(var(--clr-dark));
+	padding: 0.5em 1em;
+	margin-inline: auto;
+	transform: translateY(-100%);
+	transition: transform 500ms ease-in-out;
+}
+
+.skip-to-content:focus {
+	transform: translateY(0);
+}
+
+/* Colors */
+
+.bg-dark {
+	background-color: hsl(var(--clr-dark));
+}
+.bg-accent {
+	background-color: hsl(var(--clr-light));
+}
+.bg-white {
+	background-color: hsl(var(--clr-white));
+}
+
+.text-dark {
+	color: hsl(var(--clr-dark));
+}
+.text-accent {
+	color: hsl(var(--clr-light));
+}
+.text-white {
+	color: hsl(var(--clr-white));
+}
+
+/* Typography */
+
+.text-preset-1,
+.text-preset-2,
+.text-preset-3,
+.text-preset-4,
+.text-preset-5 {
+	font-family: var(--ff-sans-accent);
+	font-weight: var(--fw-700);
+	line-height: 1.2;
+}
+
+.text-preset-6,
+.text-preset-7,
+.text-preset-8,
+.text-preset-9,
+.text-preset-10 {
+	font-family: var(--ff-sans-normal);
+	font-weight: var(--fw-400);
+	line-height: 1.5;
+}
+
+.text-preset-9,
+.text-preset-10 {
+  letter-spacing: 0.5px;
+}
+
+.text-preset-1 {
+	font-size: var(--fs-600);
+}
+
+.text-preset-2 {
+	font-size: var(--fs-500);
+}
+
+.text-preset-3 {
+	font-size: var(--fs-400);
+}
+
+.text-preset-4 {
+	font-size: var(--fs-300);
+}
+
+.text-preset-5 {
+	font-size: var(--fs-200);
+}
+
+.text-preset-6 {
+	font-size: var(--fs-500);
+}
+
+.text-preset-7 {
+	font-size: var(--fs-400);
+}
+
+.text-preset-8 {
+	font-size: var(--fs-300);
+}
+
+.text-preset-9 {
+	font-size: var(--fs-100);
+  line-height: 1.8;
+}
+
+.text-preset-9:not(.fw-700) {
+  line-height: 1.8;
+}
+
+.text-preset-10 {
+	font-size: var(--fs-50);
+}
+
+.fw-700 {
+	font-weight: var(--fw-700);
+}
+
+.fw-400 {
+	font-weight: var(--fw-400);
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+/* ----------------  */
+/* Components        */
+/* ----------------  */
+
+/* Navbar */
+/* Button */
+/* Testimony Card */
+/* CTA */
+/* Footer */
+
+/* ---------------------------  */
+/* Page Specific Background     */
+/* ---------------------------  */
+
+/* ----------------  */
+/* Layout            */
+/* ----------------  */
