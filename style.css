@@ -38,15 +38,42 @@
 	--fw-700: 700;
 	--fw-400: 400;
 
+	/* Text Presets as CSS Variables */
+	--text-preset-1: var(--fw-700) var(--fs-600)/1.2 var(--ff-sans-accent);
+	--text-preset-2: var(--fw-700) var(--fs-500)/1.2 var(--ff-sans-accent);
+	--text-preset-3: var(--fw-700) var(--fs-400)/1.2 var(--ff-sans-accent);
+	--text-preset-4: var(--fw-700) var(--fs-300)/1.2 var(--ff-sans-accent);
+	--text-preset-5: var(--fw-700) var(--fs-200)/1.2 var(--ff-sans-accent);
+	--text-preset-6: var(--fw-400) var(--fs-500)/1.5 var(--ff-sans-normal);
+	--text-preset-7: var(--fw-400) var(--fs-400)/1.5 var(--ff-sans-normal);
+	--text-preset-8: var(--fw-400) var(--fs-300)/1.5 var(--ff-sans-normal);
+	--text-preset-9: var(--fw-400) var(--fs-100)/1.8 var(--ff-sans-normal);
+	--text-preset-10: var(--fw-400) var(--fs-50)/1.5 var(--ff-sans-normal);
+
 	--spacing-1000: 5rem;
+	--spacing-900: 4.5rem;
 	--spacing-800: 4rem;
+	--spacing-700: 3.5rem;
 	--spacing-600: 3rem;
 	--spacing-500: 2.5rem;
 	--spacing-400: 2rem;
 	--spacing-300: 1.5rem;
 	--spacing-200: 1rem;
+	--spacing-150: 0.625rem;
 	--spacing-100: 0.5rem;
 	--spacing-0: 0rem;
+
+	--radius-full: 999px;
+	--radius-28: 28px;
+	--radius-24: 24px;
+	--radius-20: 20px;
+	--radius-16: 16px;
+	--radius-12: 12px;
+	--radius-10: 10px;
+	--radius-8: 8px;
+	--radius-6: 6px;
+	--radius-4: 4px;
+	--radius-0: 0px;
 }
 
 /* ----------------  */
@@ -165,16 +192,22 @@ p {
 	font-weight: 400;
 }
 
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
 body {
-	font-family: var(--ff-sans-normal);
-	font-size: var(--fs-400);
-	background-color: hsl(var(--clr-dark));
-	color: hsl(var(--clr-white));
-	line-height: 1.5;
+	font: var(--text-preset-8);
+	background-color: hsl(var(--clr-navy-950));
+	color: hsl(var(--clr-neutral-0));
+	padding-block: var(--spacing-500);
 	min-height: 100vh;
 	display: grid;
-	grid-template-rows: min-content 1fr;
-	overflow-x: hidden;
+	align-items: center;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -202,6 +235,11 @@ body {
 .grid {
 	display: grid;
 	gap: var(--gap, 1rem);
+}
+
+.center-grid {
+	display: grid;
+	place-items: center;
 }
 
 .d-block {
@@ -299,7 +337,7 @@ body {
 
 .text-preset-9,
 .text-preset-10 {
-  letter-spacing: 0.5px;
+	letter-spacing: 0.5px;
 }
 
 .text-preset-1 {
@@ -336,11 +374,11 @@ body {
 
 .text-preset-9 {
 	font-size: var(--fs-100);
-  line-height: 1.8;
+	line-height: 1.8;
 }
 
 .text-preset-9:not(.fw-700) {
-  line-height: 1.8;
+	line-height: 1.8;
 }
 
 .text-preset-10 {
@@ -364,15 +402,330 @@ body {
 /* ----------------  */
 
 /* Navbar */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+header .logo {
+	width: 80px;
+}
+
+nav ul {
+	display: flex;
+	gap: var(--spacing-500);
+}
+
+nav li a {
+	color: hsl(var(--clr-neutral-0));
+	font: var(--text-preset-5);
+}
+
+nav li a:hover {
+	font-weight: var(--fw-700);
+}
+
+@media (max-width: 23em) {
+	nav ul {
+		gap: var(--spacing-300);
+	}
+}
+
+@media (min-width: 40em) {
+	header .logo {
+		width: auto;
+	}
+
+	nav ul {
+		gap: var(--spacing-700);
+	}
+
+	nav li a {
+		font: var(--text-preset-3);
+		font-weight: var(--fw-400);
+	}
+}
+
 /* Button */
+.primary {
+	--btn-color: hsl(var(--clr-neutral-0));
+}
+
+.button {
+	background: hsl(var(--clr-blue-250));
+	border: none;
+	border-radius: var(--radius-28);
+	color: var(--btn-color);
+	cursor: pointer;
+	font: var(--text-preset-4);
+	text-transform: capitalize;
+	padding: var(--spacing-200);
+	z-index: 1;
+	position: relative;
+}
+
+.button::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--gradient);
+	border-radius: var(--radius-28);
+	z-index: -1;
+	transition: opacity 0.3s ease;
+}
+
+.button:hover::before,
+.button:focus::before,
+.button:focus-visible::before {
+	opacity: 0;
+}
+
 /* Testimony Card */
+
+.testimony-card {
+	background-color: hsl(var(--clr-navy-800));
+	padding: var(--spacing-400) var(--spacing-300);
+	position: relative;
+}
+
+.testimony-card:first-of-type::before {
+	content: '';
+	background-image: url('./images/bg-quotes.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 32px;
+	height: 50px;
+	top: -20px;
+	left: 10px;
+	position: absolute;
+	z-index: -1;
+}
+
+.testimony-writer {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: var(--spacing-100);
+}
+
+.testimony-img {
+	border-radius: var(--spacing-1000);
+	width: 1.5rem;
+}
+
+.testimony-writer-name {
+	font: var(--text-preset-9);
+}
+
+.testimony-writer-name strong {
+	font-weight: var(--fw-700);
+}
+
+.testimony-writer-description {
+	font: var(--text-preset-10);
+}
+
 /* CTA */
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	color: hsl(var(--clr-blue-300));
+	gap: var(--spacing-100);
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 2px;
+	transition: border-color 0.3s ease;
+	width: max-content;
+}
+
+.link:hover {
+	border-bottom-color: hsl(var(--clr-neutral-0));
+	color: hsl(var(--clr-neutral-0));
+}
+
+.link:hover svg path,
+.link:hover svg use {
+	fill: white;
+}
+
+.link span {
+	display: flex;
+	align-items: center;
+}
+
 /* Footer */
 
-/* ---------------------------  */
-/* Page Specific Background     */
-/* ---------------------------  */
+address {
+	font: var(--text-preset-7);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-100);
+}
+
+address > p {
+	display: flex;
+	align-items: start;
+	gap: var(--spacing-400);
+	display: grid;
+	grid-template-columns: 2.5rem 1fr;
+}
+
+address span {
+	display: grid;
+	place-items: center;
+	height: 24px;
+}
+
+address span svg {
+	width: 24px;
+}
+
+.nav-footer {
+	font: var(--text-preset-7);
+}
+
+.footer.logo {
+	width: 108px;
+	margin-block-end: var(--spacing-500);
+}
+
+/* ----------------  */
+/* Page Specific     */
+/* ----------------  */
 
 /* ----------------  */
 /* Layout            */
 /* ----------------  */
+
+section:not(:last-of-type) {
+	margin-block-end: 160px;
+}
+
+.hero {
+	margin-block-start: var(--spacing-600);
+}
+
+.hero-text {
+	margin-block-start: var(--spacing-900);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-300);
+	text-align: center;
+}
+
+.hero button {
+	margin-inline: auto;
+	width: 80%;
+}
+
+.features {
+	text-align: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+	gap: var(--spacing-1000);
+}
+
+.feature-img {
+	margin-inline: auto;
+	height: 80px;
+}
+
+.feature p:first-of-type {
+	margin-block: var(--spacing-500) var(--spacing-100);
+}
+
+.testimony-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+	gap: var(--spacing-500);
+}
+
+.cta-img {
+	margin-block-end: var(--spacing-600);
+}
+
+.cta-text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-100);
+}
+
+.signup {
+	background-color: hsl(var(--clr-navy-850));
+	padding: var(--spacing-500) var(--spacing-300);
+	text-align: center;
+}
+
+.signup h2 {
+	font: var(--text-preset-2);
+	margin-block-end: var(--spacing-100);
+}
+
+.signup form {
+	margin-block-start: var(--spacing-400);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-300);
+}
+
+.signup form input {
+	text-align: center;
+	background: hsl(var(--clr-neutral-0));
+	color: hsl(var(--clr-neutral-400));
+	border: none;
+	border-radius: var(--radius-28);
+	font: var(--text-preset-8);
+	padding: var(--spacing-200);
+}
+
+.signup form input:focus {
+	outline: 2px solid hsl(var(--clr-blue-300));
+	outline-offset: 2px;
+}
+
+@media (min-width: 40em) {
+	.signup h2 {
+		font: var(--text-preset-1);
+	}
+}
+
+footer {
+	margin-block-start: 80px;
+}
+
+.nav-footer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-500);
+	margin-block: var(--spacing-700) var(--spacing-600);
+}
+
+.nav-footer ul {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-100);
+}
+
+.nav-socials {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-150);
+}
+
+.nav-socials li {
+	border: 1px solid hsl(var(--clr-neutral-0));
+	border-radius: var(--spacing-1000);
+	width: 27px;
+	height: 27px;
+}
+
+.nav-socials a {
+	color: var(--clr-neutral-0);
+}
+
+.nav-socials li svg {
+	height: 13px;
+}
