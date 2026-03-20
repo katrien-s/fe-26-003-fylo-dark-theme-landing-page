@@ -206,7 +206,7 @@ ul {
 
 body {
 	font: var(--text-preset-8);
-	background-color: hsl(var(--clr-navy-900));
+	background-color: hsl(var(--clr-navy-800));
 	color: hsl(var(--clr-neutral-0));
 	padding-block-start: var(--spacing-500);
 	display: grid;
@@ -229,26 +229,6 @@ body {
 /* -----------------  */
 
 /* General */
-
-.flex {
-	display: flex;
-	gap: var(--gap, 1rem);
-}
-
-.grid {
-	display: grid;
-	gap: var(--gap, 1rem);
-}
-
-.center-grid {
-	display: grid;
-	place-items: center;
-}
-
-.d-block {
-	display: block;
-}
-
 .flow > *:where(:not(:first-child)) {
 	margin-top: var(--flow-space, 1rem);
 }
@@ -275,23 +255,18 @@ body {
 	border: 0;
 }
 
-[hidden] {
-	display: none;
+/* Colors */
+.clr-navy-800 {
+	background-color: hsl(var(--clr-navy-800));
 }
-
-.skip-to-content {
-	position: absolute;
-	z-index: 9999;
-	background-color: hsl(var(--clr-white));
-	color: hsl(var(--clr-dark));
-	padding: 0.5em 1em;
-	margin-inline: auto;
-	transform: translateY(-100%);
-	transition: transform 500ms ease-in-out;
+.clr-navy-850 {
+	background-color: hsl(var(--clr-navy-850));
 }
-
-.skip-to-content:focus {
-	transform: translateY(0);
+.clr-navy-900 {
+	background-color: hsl(var(--clr-navy-900));
+}
+.clr-navy-950 {
+	background-color: hsl(var(--clr-navy-950));
 }
 
 /* Typography */
@@ -578,6 +553,41 @@ section:not(:last-child) {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
 	gap: var(--spacing-1000);
+	margin-block-start: 160px;
+}
+
+/* Container for the curved background (outside wrapper) */
+.curved-bg-wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden; /* Prevents scrollbars */
+	background-color: aliceblue;
+	height: 500px;
+}
+
+/* Mobile Background (Default) */
+.features-bg {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	/* max-width: 1200px;  */
+	height: 100%;
+	background-image: url('./images/bg-curvy-mobile.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 10; /* Place behind content */
+	pointer-events: none; /* Ensures clicks pass through */
+}
+
+/* Desktop Background */
+@media (min-width: 60em) {
+	.features-bg {
+		background-image: url('./images/bg-curvy-desktop.svg');
+		/* Adjust positioning/sizing for desktop if needed */
+	}
 }
 
 .feature-img {
