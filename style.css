@@ -213,6 +213,10 @@ body {
 	align-items: center;
 }
 
+main {
+	position: relative;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -513,10 +517,6 @@ address span svg {
 /* Layout            */
 /* ----------------  */
 
-section:not(:last-child) {
-	margin-block-end: 160px;
-}
-
 .hero {
 	margin-block-start: var(--spacing-600);
 	max-width: 735px;
@@ -548,46 +548,26 @@ section:not(:last-child) {
 	max-width: 280px;
 }
 
+.hero-wrapper {
+	background-image: url('./images/bg-curvy-mobile.svg');
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-size: 100%;
+}
+
+@media (min-width: 40em) {
+	.hero-wrapper {
+		background-image: url('./images/bg-curvy-desktop.svg');
+	}
+}
+
 .features {
 	text-align: center;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
 	gap: var(--spacing-1000);
-	margin-block-start: 160px;
-}
-
-/* Container for the curved background (outside wrapper) */
-.curved-bg-wrapper {
-	position: relative;
-	width: 100%;
-	overflow: hidden; /* Prevents scrollbars */
-	background-color: aliceblue;
-	height: 500px;
-}
-
-/* Mobile Background (Default) */
-.features-bg {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 100%;
-	/* max-width: 1200px;  */
-	height: 100%;
-	background-image: url('./images/bg-curvy-mobile.svg');
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-	z-index: 10; /* Place behind content */
-	pointer-events: none; /* Ensures clicks pass through */
-}
-
-/* Desktop Background */
-@media (min-width: 60em) {
-	.features-bg {
-		background-image: url('./images/bg-curvy-desktop.svg');
-		/* Adjust positioning/sizing for desktop if needed */
-	}
+	padding-block-start: 160px;
+	margin-block-end: 10rem;
 }
 
 .feature-img {
@@ -600,7 +580,7 @@ section:not(:last-child) {
 	margin-inline: auto;
 }
 
-.feature p:first-of-type {
+.feature h2 {
 	margin-block: var(--spacing-500) var(--spacing-100);
 }
 
@@ -623,6 +603,7 @@ section:not(:last-child) {
 	max-width: 41.25em;
 	margin-inline: auto;
 	gap: var(--spacing-600);
+	margin-block-end: 10rem;
 }
 
 .cta-img {
@@ -670,25 +651,27 @@ section:not(:last-child) {
 	}
 }
 
-.signup {
-	background-color: hsl(var(--clr-navy-850));
-	padding: var(--spacing-500) var(--spacing-300);
-	text-align: center;
-	margin-inline: auto;
+.colour-wrapper {
+	padding-block-end: 326px;
 }
 
 @media (min-width: 40em) {
-	.signup {
-		padding: var(--spacing-600) var(--spacing-500);
-		max-width: 450px;
+	.colour-wrapper {
+		padding-block-end: 260px;
 	}
 }
 
-@media (min-width: 60em) {
-	.signup {
-		padding: var(--spacing-600) var(--spacing-1000);
-		max-width: 860px;
-	}
+.signup {
+	--signup-height: 367px;
+	background-color: hsl(var(--clr-navy-850));
+	padding: var(--spacing-500) var(--spacing-300);
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	min-width: 240px;
+	width: calc(100% - 4em);
+	bottom: calc(var(--signup-height) / -2);
 }
 
 .signup h2 {
@@ -722,12 +705,24 @@ section:not(:last-child) {
 }
 
 @media (min-width: 40em) {
+	.signup {
+		--signup-height: 357px;
+		padding: var(--spacing-600) var(--spacing-500);
+		max-width: 450px;
+	}
+
 	.signup h2 {
 		font: var(--text-preset-1);
 	}
 }
 
 @media (min-width: 60em) {
+	.signup {
+		--signup-height: 271px;
+		padding: var(--spacing-600) var(--spacing-1000);
+		max-width: 860px;
+	}
+
 	.signup form {
 		flex-direction: row;
 		justify-content: center;
@@ -747,9 +742,8 @@ section:not(:last-child) {
 
 footer {
 	background-color: hsl(var(--clr-navy-950));
-	margin-block-start: -10.625rem;
-	padding-block: 12.5rem var(--spacing-500);
-	z-index: -2;
+	padding-block-start: 260px;
+	padding-block-end: var(--spacing-500);
 }
 
 .footer {
@@ -864,6 +858,10 @@ footer {
 }
 
 @media (min-width: 68em) {
+	footer {
+		padding-block-start: 162px;
+	}
+
 	.footer {
 		grid-template-columns: repeat(4, auto);
 	}
@@ -875,7 +873,4 @@ footer {
 	.footer-address {
 		column-gap: var(--spacing-500);
 	}
-}
-
-footer {
 }

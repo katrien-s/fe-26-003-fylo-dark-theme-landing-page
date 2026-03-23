@@ -37,8 +37,8 @@
 		</header>
 
 		<main>
-			<div class="clr-navy-800">
-				<div class="wrapper flow">
+			<div class="clr-navy-800 hero-wrapper">
+				<div class="wrapper">
 					<section class="hero">
 						<img
 							src="./images/illustration-intro.png"
@@ -61,9 +61,9 @@
 				</div>
 			</div>
 
-			<div class="clr-navy-900">
+			<div class="clr-navy-900 colour-wrapper">
 				<div class="wrapper flow">
-					<section class="features" aria-labelledby="features-heading">
+					<section class="features" aria-label="Features">
 						<article class="feature">
 							<img
 								src="./images/icon-access-anywhere.svg"
@@ -184,7 +184,7 @@
 							</a>
 						</div>
 					</section>
-					<section class="testimony-cards" aria-labelledby="Testimonials">
+					<section class="testimony-cards" aria-label="Testimonials">
 						<article class="testimony-card flow">
 							<h3 class="sr-only">Testimony from Satish Patel</h3>
 							<p class="testimony-text">
@@ -253,30 +253,29 @@
 							</div>
 						</article>
 					</section>
-					<section class="signup" aria-labelledby="signup-heading">
-						<h2>Get early access today</h2>
-						<p class="text-preset-8">
-							It only takes a minute to sign up and our free starter tier is
-							extremely generous. If you have any questions, our support team
-							would be happy to help you.
-						</p>
-						<form action="">
-							<label for="signup" class="sr-only"
-								>Enter your email address</label
-							>
-							<input
-								type="email"
-								name="signup"
-								id="signup"
-								placeholder="email@example.com"
-							/>
-							<button class="button primary" type="submit">
-								Get Started For Free
-							</button>
-						</form>
-					</section>
 				</div>
 			</div>
+
+			<section class="signup" aria-label="Get early access">
+				<h2>Get early access today</h2>
+				<p>
+					It only takes a minute to sign up and our free starter tier is
+					extremely generous. If you have any questions, our support team would
+					be happy to help you.
+				</p>
+				<form action="">
+					<label for="signup" class="sr-only">Enter your email address</label>
+					<input
+						type="email"
+						name="signup"
+						id="signup"
+						placeholder="email@example.com"
+					/>
+					<button class="button primary" type="submit">
+						Get Started For Free
+					</button>
+				</form>
+			</section>
 		</main>
 
 		<footer>

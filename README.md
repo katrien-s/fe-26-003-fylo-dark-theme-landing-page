@@ -10,6 +10,7 @@ This is a solution to the [Fylo dark theme landing page challenge on Frontend Me
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [What did I learn](#what-did-i-learn)
   - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
 
@@ -41,9 +42,9 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 
-### Continued development
+### What did I learn
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- Just a reminder: **Decorative images that are part of the layout belong in CSS, content images belong in HTML.**
 
 ### AI Collaboration
 
