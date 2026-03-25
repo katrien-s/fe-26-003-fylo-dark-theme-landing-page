@@ -425,7 +425,7 @@ nav li a:hover {
 }
 
 .testimony-img {
-	border-radius: var(--spacing-1000);
+	border-radius: var(--radius-full);
 	width: 1.5rem;
 }
 
@@ -810,7 +810,7 @@ footer {
 
 .footer-socials li {
 	border: 1px solid hsl(var(--clr-neutral-0));
-	border-radius: 100%;
+	border-radius: var(--radius-full);
 	aspect-ratio: 1/1;
 	width: 32px;
 	height: 32px;
@@ -842,7 +842,7 @@ footer {
 
 .footer-socials a:focus-visible {
 	outline: none;
-	border-radius: 100%;
+	border-radius: var(--radius-full);
 }
 
 @media (min-width: 40em) {
