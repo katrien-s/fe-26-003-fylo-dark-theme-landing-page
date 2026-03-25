@@ -270,8 +270,12 @@
 						name="signup"
 						id="signup"
 						placeholder="email@example.com"
+						aria-describedby="signup-error"
+						aria-invalid="false"
 					/>
-					<button class="button primary" type="submit">
+					<span id="signup-error" class="signup-error" aria-live="polite">
+					</span>
+					<button class="button primary" id="submit-btn" type="submit">
 						Get Started For Free
 					</button>
 				</form>

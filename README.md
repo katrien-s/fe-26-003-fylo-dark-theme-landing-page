@@ -49,17 +49,14 @@ Users should be able to:
 ### AI Collaboration
 
 - Mistral on how to split the flex-container unevenly. Its suggestions were partially helpful in huiding me, as the given solution was not accurately working.
-
-- Mistral to do debugging on the `<footer?`. 
+- Mistral to do debugging on the `<footer>`. 
 It was reluctant in accepting the css as written for the design and came up with different solutions. By which I instructed Mistral to just check the code instead of redoing it bu default.
-
 - Mistral to verify the CSS Custom Variables and the Utility Classes.
 
 - Claude to debug an overflowing error I'd written in `.features` without noticing.
-
 - Claude to readthrough the CSS and clean up unnecessary code.
-
+- Claude to help with the Form Validation
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@katrien-s](https://www.frontendmentor.io/profile/katrien-s)
