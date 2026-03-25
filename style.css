@@ -104,10 +104,6 @@ html {
 	block-size: 100%;
 }
 
-body {
-	min-block-size: 100%;
-}
-
 img,
 iframe,
 audio,
@@ -176,7 +172,6 @@ h6 {
 	line-height: 1.1;
 }
 
-body,
 h1,
 h2,
 h3,
@@ -203,6 +198,8 @@ body {
 	padding-block-start: var(--spacing-500);
 	display: grid;
 	align-items: center;
+	margin: 0;
+	min-block-size: 100%;
 }
 
 main {
@@ -452,7 +449,7 @@ nav li a:hover {
 	color: hsl(var(--clr-blue-300));
 	gap: var(--spacing-100);
 	border-bottom: 1px solid currentColor;
-	padding-bottom: 2px;
+	padding-block-end: 2px;
 	transition: border-color 0.3s ease;
 	width: max-content;
 }
@@ -484,10 +481,20 @@ address {
 	gap: var(--spacing-100);
 }
 
-address > p {
+.footer-location,
+.footer-phone,
+.contact-link {
 	display: grid;
 	grid-template-columns: 2.5rem 1fr;
 	gap: var(--spacing-400);
+}
+
+.contact-link {
+	color: hsl(var(--clr-neutral-0));
+}
+
+.contact-link:hover {
+	text-decoration: underline;
 }
 
 address span {

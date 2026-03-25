@@ -2,7 +2,8 @@ const form = document.querySelector('.signup form');
 const input = document.getElementById('signup');
 const error = document.getElementById('signup-error');
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex =
+	/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 if (form && input && error) {
 	function validate() {
